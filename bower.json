@@ -1,0 +1,25 @@
+{
+  "name": "ads",
+  "description": "online ads publishing",
+  "main": "index.js",
+  "authors": [
+    "arif.ahmed"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "ads"
+  ],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.6.5",
+    "bootstrap": "^3.3.7",
+    "noty": "^3.1.0"
+  }
+}

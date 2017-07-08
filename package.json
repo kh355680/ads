@@ -1,0 +1,25 @@
+{
+  "name": "ads",
+  "version": "1.0.0",
+  "description": "online ads publishing",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kh355680/ads.git"
+  },
+  "keywords": [
+    "ads"
+  ],
+  "author": "arif.ahmed",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kh355680/ads/issues"
+  },
+  "homepage": "https://github.com/kh355680/ads#readme",
+  "dependencies": {
+    "bower": "^1.8.0"
+  }
+}
