@@ -1,9 +1,9 @@
 (function () {
     'use strict';
 
-    angular.module('layout').directive('rightSideBar', constructor);
+    angular.module('layout').directive('rightSideBar', test);
 
-    function constructor(){
+    function test(){
         return {
             restrict:'E',
             templateUrl:'components/layout/right-side-bar/right-side-bar.html',
