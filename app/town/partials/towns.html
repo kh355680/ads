@@ -7,13 +7,13 @@
                 <th>Action</th>
             </thead>
             <tbody>
-                <tr ng-repeat="town in town.towns">
+                <tr ng-repeat="t in town.towns">
                     <td><input type="checkbox" class="checkthis" /></td>
-                    <td>{{::town.name}}</td>
+                    <td>{{::t.name}}</td>
                     <td>
                         <p>
-                            <button class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-pencil"></span></button>
-                            <button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete"><span class="glyphicon glyphicon-trash"></span></button>
+                            <button class="btn btn-primary btn-xs" ng-click="town.update(t.id)"><span class="glyphicon glyphicon-pencil"></span></button>
+                            <button class="btn btn-danger btn-xs" ng-click="town.removeTown(t)"><span class="glyphicon glyphicon-trash"></span></button>
                         </p>
                     </td>
                 </tr>
@@ -55,7 +55,7 @@
             </div>
             <div class="col col-md-6">
                 <div class="form-group">
-                    <button class="btn btn-success">Create Town</button>
+                    <button class="btn btn-success" ng-click="town.gotoCreatePage()">Create Town</button>
                 </div>
             </div>
             <div class="col col-md-3">

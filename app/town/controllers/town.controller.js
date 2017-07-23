@@ -3,8 +3,9 @@
 
     angular.module('app.town').controller('TownController', constructor);
 
-    function constructor($http, $state, $stateParams) {
+    function constructor($scope, $http, $state, $stateParams) {
         var vm = this;
+        vm.yo = 'Yo';
         function init() {
 
             /*
@@ -23,10 +24,23 @@
         }
         init();
 
+        vm.gotoCreatePage = function(){
+            $state.go('createTown');
+        }
+
         vm.create = function () {
             $http.post('/towns', { data: 'yo' }).then(function (response) {
                 $state.go('towns');
             });
+        }
+
+        vm.removeTown = function (townInfo) {
+            $state.go('deleteTown', { townDetail: townInfo });
+        }
+
+        vm.update = function (townId) {
+            debugger;
+            $state.go('editTown', { townId: townId });
         }
     }
 })();

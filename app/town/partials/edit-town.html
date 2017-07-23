@@ -1,77 +1,20 @@
 <div class="container">
     <div class="row">
-        <form class="form-horizontal">
-            <fieldset>
-
-                <!-- Form Name -->
-                <legend>Form Name</legend>
-
-                <!-- Text input-->
+        <div class="col col-md-2">
+        </div>
+        <div class="col col-md-4">
+            <span>Create Town</span>
+            <hr>
+            <form>
                 <div class="form-group">
-                    <label class="col-md-4 control-label" for="Current Fleet Size">Current Fleet Size</label>
-                    <div class="col-md-5">
-                        <input id="Current Fleet Size" name="Current Fleet Size" type="text" placeholder="approximate" class="form-control input-md">
-
-                    </div>
+                    <label for="inputEmail">Town:</label>
+                    <input type="text" class="form-control" id="inputEmail" ng-model="town.name">
                 </div>
-
-                <!-- Text input-->
-                <div class="form-group">
-                    <label class="col-md-4 control-label" for="Annual Forklift Purchases">Annual Forklift Purchases</label>
-                    <div class="col-md-5">
-                        <input id="Annual Forklift Purchases" name="Annual Forklift Purchases" type="text" placeholder="approximate" class="form-control input-md">
-
-                    </div>
-                </div>
-
-                <!-- Select Multiple -->
-                <div class="form-group">
-                    <label class="col-md-4 control-label" for="Area of Interest">Area of Interest</label>
-                    <div class="col-md-5">
-                        <select id="Area of Interest" name="Area of Interest" class="form-control" multiple="multiple">
-      <option value="1">Please Select Area of Interest</option>
-      <option value="2">Purchase New</option>
-      <option value="3">Lease</option>
-      <option value="4">Rent</option>
-      <option value="5">Parts & Service</option>
-      <option value="">Other</option>
-    </select>
-                    </div>
-                </div>
-
-                <!-- Select Basic -->
-                <div class="form-group">
-                    <label class="col-md-4 control-label" for="Decision Timeframe">Decision Timeframe</label>
-                    <div class="col-md-5">
-                        <select id="Decision Timeframe" name="Decision Timeframe" class="form-control">
-      <option value="1">Select One</option>
-      <option value="2">As soon as possible</option>
-      <option value="3">1 to 3 months</option>
-      <option value="4">3 to 6 months</option>
-      <option value="">6+ months</option>
-    </select>
-                    </div>
-                </div>
-
-                <!-- Text input-->
-                <div class="form-group">
-                    <label class="col-md-4 control-label" for="Message">Message</label>
-                    <div class="col-md-5">
-                        <input id="Message" name="Message" type="text" placeholder="Message" class="form-control input-md">
-
-                    </div>
-                </div>
-
-                <!-- Button -->
-                <div class="form-group">
-                    <label class="col-md-4 control-label" for="singlebutton">Submit</label>
-                    <div class="col-md-4">
-                        <button id="singlebutton" name="singlebutton" class="btn btn-primary">Submit</button>
-                    </div>
-                </div>
-
-            </fieldset>
-        </form>
-
+                <button class="btn btn-primary" ng-click="update()">Update</button>
+                <button class="btn btn-primary">Cancel</button>
+            </form>
+        </div>
+        <div class="col col-md-6">
+        </div>
     </div>
 </div>

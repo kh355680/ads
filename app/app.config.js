@@ -31,19 +31,24 @@
                 controller: 'TownController',
                 controllerAs: 'town'
             })
-            .state('townCreate', {
-                url: '/towns/new',
+            .state('createTown', {
+                url: '/towns/create',
                 templateUrl: 'app/town/partials/new-town.html',
-                controller: 'TownController',
-                controllerAs: 'town'
+                controller: 'CreateTownController'
             })
             .state('editTown', {
-                url: '/towns/edit',
-                templateUrl: 'app/town/partials/edit-town.html'
+                url: '/towns/edit/{townId}',
+                templateUrl: 'app/town/partials/edit-town.html',
+                controller: 'EditTownController'
             })
             .state('deleteTown', {
                 url: '/towns/delete',
-                templateUrl: 'app/town/partials/delete-town.html'
+                templateUrl: 'app/town/partials/delete-town.html',
+                controller: 'DeleteTownController',
+                controllerAs: 'town',
+                params: {
+                    townDetail: null
+                }
             });
 
         $urlRouterProvider.when('', '/home');

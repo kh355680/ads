@@ -32,39 +32,52 @@
                 return [200, towns, {}];
             });
 
-            $httpBackend.whenGET(/\/books\/\d+/).respond(function (method, url, data) {
-                // parse the matching URL to pull out the id (/games/:id)
-                var town = towns[0];
-                return [200, town, {}];
+            $httpBackend.whenGET(/\/towns\/\d+/).respond(function (method, url, data) {
+                var chars = url.split('/');
+                var id = chars[chars.length - 1];
+                var town = _.find(towns, function (town) {
+                    return town.id === parseInt(id);
+                })
+                return [201, town, {}];
             });
 
             // this is the creation of a new resource
             $httpBackend.whenPOST('/towns').respond(function (method, url, data) {
-                towns.push({name:'yo'});        
-                return [201, data, { Location: '/towns' }];
+                var town = angular.fromJson(data);
+                town.id = towns.length + 1;
+                towns.push(town);
+                return [201, null, { Location: '/towns/' }];
             });
 
             // this is the update of an existing resource (ngResource does not send PUT for update)
-            $httpBackend.whenPOST(/\/games\/\d+/).respond(function (method, url, data) {
-                var params = angular.fromJson(data);
+            $httpBackend.whenPUT(/\/towns\/\d+/).respond(function (method, url, data) {
+                var chars = url.split('/');
+                var id = parseInt(chars[chars.length - 1]);
+                var townIndex = _.findIndex(towns, function (town) {
+                    return town.id === id;
+                })
 
-                // parse the matching URL to pull out the id (/games/:id)
-                var gameid = url.split('/')[2];
-
-                var game = ServerDataModel.updateOne(gameid, params);
-
-                return [201, game, { Location: '/games/' + gameid }];
+                towns[townIndex] = angular.fromJson(data);
+                console.log(towns);
+                return [201, null, {}];
             });
 
             // this is the update of an existing resource (ngResource does not send PUT for update)
-            $httpBackend.whenDELETE(/\/games\/\d+/).respond(function (method, url, data) {
-                // parse the matching URL to pull out the id (/games/:id)
-                var gameid = url.split('/')[2];
+            $httpBackend.whenDELETE(/\/towns\/\d+/).respond(function (method, url, data) {
+                var chars = url.split('/');
+                var id = chars[chars.length - 1];
 
-                ServerDataModel.deleteOne(gameid);
+                _.remove(towns, function (n) {
+                    return n.id == id;
+                });
+
+                console.log(towns);
+                debugger;
 
                 return [204, {}, {}];
             });
 
+            // pass through template requests
+            $httpBackend.whenGET(/\.html$/).passThrough();
         });
 })();
