@@ -1,0 +1,66 @@
+<div class="row">
+    <div class="col-md-12">
+        <table id="mytable" class="table">
+            <thead>
+                <th><input type="checkbox" id="checkall" /></th>
+                <th>Town</th>
+                <th>Action</th>
+            </thead>
+            <tbody>
+                <tr ng-repeat="town in town.towns">
+                    <td><input type="checkbox" class="checkthis" /></td>
+                    <td>{{::town.name}}</td>
+                    <td>
+                        <p>
+                            <button class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-pencil"></span></button>
+                            <button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete"><span class="glyphicon glyphicon-trash"></span></button>
+                        </p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="col col-md-12">
+        <div class="row">
+            <div class="col col-md-3">
+            </div>
+            <div class="col col-md-6">
+                <nav aria-label="Page navigation">
+                    <ul class="pagination">
+                        <li>
+                            <a href="#" aria-label="Previous">
+        <span aria-hidden="true">&laquo;</span>
+      </a>
+                        </li>
+                        <li><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">4</a></li>
+                        <li><a href="#">5</a></li>
+                        <li>
+                            <a href="#" aria-label="Next">
+        <span aria-hidden="true">&raquo;</span>
+      </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="col col-md-3">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col col-md-3">
+
+            </div>
+            <div class="col col-md-6">
+                <div class="form-group">
+                    <button class="btn btn-success">Create Town</button>
+                </div>
+            </div>
+            <div class="col col-md-3">
+
+            </div>
+        </div>
+    </div>
+</div>
